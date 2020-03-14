@@ -1,0 +1,17 @@
+REM
+REM  Redo Log Physical Files
+REM
+
+@_BEGIN
+@_TITLE "REDO LOG PHYSICAL FILES"
+
+COLUMN group#  FORMAT 999999
+COLUMN member  FORMAT A63
+BREAK ON GROUP#
+
+SELECT * 
+FROM sys.v_$logfile
+ORDER BY group#
+/
+
+@_END

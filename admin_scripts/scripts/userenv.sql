@@ -1,0 +1,32 @@
+REM 
+REM  Show values of all USERENV variables
+REM  Notes:   Valid USERENV parameters are:
+REM           OSDBA, LABEL*, LANGUAGE, TERMINAL, SESSIONID*, ENTRYID*
+REM           CLIENT_INFO, LANG
+REM           *restricted, see documentation
+REM           SESSIONID,ENTRYID require AUDIT_TRAIL=TRUE in init.ora
+REM  Author:  Mark Lang, 1998
+REM
+
+@_BEGIN
+@_TITLE "USERENV VARIABLES"
+
+COLUMN env      FORMAT A15  HEADING VARIABLE
+COLUMN value    FORMAT A40
+
+SELECT 'LANGUAGE' env, USERENV('LANGUAGE') value FROM sys.dual
+UNION ALL
+SELECT 'TERMINAL' env, USERENV('TERMINAL') value FROM sys.dual
+UNION ALL
+SELECT 'SESSIONID' env, TO_CHAR(USERENV('SESSIONID')) value FROM sys.dual
+UNION ALL
+SELECT 'ENTRYID' env, TO_CHAR(USERENV('ENTRYID')) value FROM sys.dual
+UNION ALL
+SELECT 'CLIENT_INFO' env, USERENV('CLIENT_INFO') value FROM sys.dual
+UNION ALL
+SELECT 'LANG' env, USERENV('LANG') value FROM sys.dual
+;
+
+UNDEFINE env value
+
+@_END

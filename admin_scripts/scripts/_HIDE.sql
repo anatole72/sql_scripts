@@ -1,0 +1,9 @@
+REM
+REM Settings for "silent" running
+REM
+SET HEADING OFF
+SET TERMOUT OFF
+SET PAGESIZE 0
+SET FEEDBACK OFF
+
+

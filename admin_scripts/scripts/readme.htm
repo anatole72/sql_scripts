@@ -1,0 +1,1063 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>Oracle Scripts Collection</TITLE>
+</HEAD>
+<BODY>
+<TT><FONT COLOR="#CC0000">O R A C L E&nbsp;&nbsp;
+S C R I P T S</FONT></TT>
+
+<P><TT>Collected by S.Stetsenko</TT>
+<BR><TT>Version: May 10, 1998</TT>
+<BR>&nbsp;
+
+<P><TT><FONT COLOR="#009900">SCRIPTS CLASSIFICATION</FONT></TT>
+
+<P><TT><A HREF="#STORAGE">STORAGE</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#TABLESPACES">TABLESPACES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#DATA FILES">DATA FILES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#SEGMENTS">SEGMENTS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#ROLLBACKS">ROLLBACKS</A></TT>
+<BR><TT><A HREF="#SECURITY">SECURITY</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#USERS">USERS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#PROFILES">PROFILES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#ROLES AND PRIVILEGES">ROLES AND PRIVILEGES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#AUDIT">AUDIT</A></TT>
+<BR><TT><A HREF="#INSTANCE">INSTANCE</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#SGA">SGA</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#BUFFER CACHE">BUFFER
+CACHE</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#SHARED POOL">SHARED
+POOL</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#OTHER">OTHER</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#INITIALIZATION">INITIALIZATION</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#TRANSACTIONS">TRANSACTIONS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#SESSIONS AND PROCESSES">SESSIONS AND
+PROCESSES</A></TT>
+<BR><TT><A HREF="#RECOVERY AND BACKUP">RECOVERY</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#BACKUP">BACKUP</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#RECOVERY">RECOVERY</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#REDO LOGS">REDO LOGS</A></TT>
+<BR><TT><A HREF="#SCHEMA">SCHEMA</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#DATA DICTIONARY">DATA DICTIONARY</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#OPTIMIZER">OPTIMIZER</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#EXPLAIN">EXPLAIN</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#OBJECTS">OBJECTS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#GENERAL">GENERAL</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#TABLES AND VIEWS">TABLES
+AND VIEWS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#INDEXES">INDEXES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#CLUSTERS">CLUSTERS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#SEQUENCES">SEQUENCES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="#SYNONYMS">SYNONYMS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#CONSTRAINTS">CONSTRAINTS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#PL/SQL UNITS">PL/SQL UNITS</A></TT>
+<BR><TT><A HREF="#SYSTEM">SYSTEM</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#MTS">MTS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#LATCHES">LATCHES</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#LOCKS">LOCKS</A></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="#STATISTICS">STATISTICS</A></TT>
+<BR><TT><A HREF="#INTEGRATED SCRIPTS">INTEGRATED SCRIPTS</A></TT>
+<BR><TT><A HREF="#MISCELLANEOUS">MISCELLANEOUS</A></TT>
+<BR><TT><A HREF="#SERVICE SCRIPTS">SERVICE SCRIPTS</A></TT>
+<BR><TT><A HREF="#NOTES">NOTES</A></TT>
+<BR>&nbsp;
+
+<P><TT><FONT COLOR="#009900">SCRIPTS DESCRIPTION</FONT></TT>
+
+<P><A NAME="STORAGE"></A><TT><FONT COLOR="#000000">STORAGE:</FONT></TT>
+
+<P><TT>&nbsp;<A NAME="TABLESPACES"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+TABLESPACES:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="boundobj.sql">boundobj</A>
+- Report on objects with extents bounded by freespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="coalesce.sql">coalesce</A>
+- Coalesces all tablespaces in a database (7.3)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="free_ext.sql">free_ext</A>
+- Free space map for tablespaces in a database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="free_sp.sql">free_sp</A>&nbsp;
+- Provide information on free space in a database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_free.sql">ts_free</A>&nbsp;
+- Free space in tablespaces (summary)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_ext.sql">ts_ext</A>&nbsp;&nbsp;
+- Phisycal placement of segment extents in a tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_seg.sql">ts_seg</A>&nbsp;&nbsp;
+- List of users and their segments in a tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_usr.sql">ts_usr</A>&nbsp;&nbsp;
+- Owner-to-tablespace location map</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_ts.sql">usr_ts</A>&nbsp;&nbsp;
+- Tablespace-to-owner location map</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="coalescd.sql">coalescd</A>
+- Coalesced extents per tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_used.sql">ts_used</A>&nbsp;
+- Tablespace storage information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_defst.sql">ts_defst</A>
+- Default storage for each of the tablespaces</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="quotas.sql">quotas</A>&nbsp;&nbsp;
+- Database used space report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="systemts.sql">systemts</A>
+- Who sits on the tablespace SYSTEM?</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_size.sql">ts_size</A>&nbsp;
+- Tablespaces sizing and using</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_rct.sql">ts_rct</A>&nbsp;&nbsp;
+- Script for (re)creating tablespaces</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_frag.sql">ts_frag</A>&nbsp;
+- Tablespaces fragmentation information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_used.sql">usr_used</A>
+- Database usage by user and tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_io.sql">ts_io</A>&nbsp;&nbsp;&nbsp;
+- Displays the datafile I/O by tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="frag.sql">frag</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Displays database fragmentation chart</TT>
+
+<P><TT>&nbsp;<A NAME="DATA FILES"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+DATA FILES:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="file_io.sql">file_io</A>&nbsp;
+- Input/Output statistics by datafile</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="io.sql">io</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- I/O distribution by file, tablespace, or device</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="phys_io.sql">phys_io</A>&nbsp;
+- Information on physical datafile reads and writes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_io.sql">ts_io</A>&nbsp;&nbsp;&nbsp;
+- Displays the datafile I/O by tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="files.sql">files</A>&nbsp;&nbsp;&nbsp;
+- All database files (control, redo, data etc.)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="datafile.sql">datafile</A>
+- Document datafile sizes and locations</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_file.sql">ts_file</A>&nbsp;
+- Datafiles for tablespaces (sizing info)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="filefrag.sql">filefrag</A>
+- Free space fragmentation in datafiles</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="file_ext.sql">file_ext</A>
+- Show datafile AUTOEXTEND characteristics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="filerows.sql">filerows</A>
+- Table's rows per datafile (striping effectiveness)</TT>
+
+<P><TT>&nbsp;<A NAME="SEGMENTS"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+SEGMENTS:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="unused.sql">unused</A>&nbsp;&nbsp;
+- Determine space allocation within a segment (7.3)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="seg_ext.sql">seg_ext</A>&nbsp;
+- Segment extents (an interactive script)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="seg_type.sql">seg_type</A>
+- List segments grouped by segment type</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_ext.sql">ts_ext</A>&nbsp;&nbsp;
+- Phisycal placement of segment extents in a tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_seg.sql">ts_seg</A>&nbsp;&nbsp;
+- List of users and their segments in a tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ts_usr.sql">ts_usr</A>&nbsp;&nbsp;
+- Owner-to-tablespace location map</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_ts.sql">usr_ts</A>&nbsp;&nbsp;
+- Tablespace-to-owner location map</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="boundobj.sql">boundobj</A>
+- Report on objects with extents bounded by freespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="cant_ext.sql">cant_ext</A>
+- Unextendable database segments</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="not_extd.sql">not_extd</A>
+- Database objects that are not be able to extent</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="max_ext.sql">max_ext</A>&nbsp;
+- Objects with extents allocated close to Max_Extents</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="many_ext.sql">many_ext</A>
+- Segments with more then specified number of extents</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="my_space.sql">my_space</A>
+- Find space used for one's own segments</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="blokrows.sql">blokrows</A>
+- Number of rows per table block</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tab_size.sql">tab_size</A>
+- Calculates size of a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="systemts.sql">systemts</A>
+- Who sits on the tablespace SYSTEM?</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="seg_cols.sql">seg_cols</A>
+- Physical order of columns in a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="corrupt.sql">corrupt</A>&nbsp;
+- Find the segment having the file and block numbers</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="dealloc.sql">dealloc</A>&nbsp;
+- Deallocate unused space from (table) segments</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="t&i_size.sql">t&amp;i_size</A>
+- Table and their index segment sizes</TT>
+
+<P><TT>&nbsp;<A NAME="ROLLBACKS"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+ROLLBACKS:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs.sql">rbs</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Rollback segments general information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_usr.sql">rbs_usr</A>&nbsp;
+- Rollback segments, active users and SQL statements</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_cont.sql">rbs_cont</A>
+- Rollback segments contention</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_usag.sql">rbs_usag</A>
+- Rollback segments - Transactions - Statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_wait.sql">rbs_wait</A>
+- Rollback segment wait statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tran_tbl.sql">tran_tbl</A>
+- Number of rollbacks performed on the transaction tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_chk.sql">rbs_chk</A>&nbsp;
+- Checks how effectively the RBS have been set up</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_def.sql">rbs_def</A>&nbsp;
+- Rollback default storage parameters</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_rct.sql">rbs_rct</A>&nbsp;
+- Script for (re)creating rollback segments</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_tx.sql">rbs_tx</A>&nbsp;&nbsp;
+- Rollback segments in use</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_off.sql">rbs_off</A>&nbsp;
+- Set available rollback segments offline</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_on.sql">rbs_on</A>&nbsp;&nbsp;
+- Set available rollback segments online</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_stat.sql">rbs_stat</A>
+- Rollback segments statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_life.sql">rbs_life</A>
+- Rollback segments life's watcher (a demo script)</TT>
+<BR><TT>&nbsp;</TT>
+
+<P><A NAME="SECURITY"></A><TT><FONT COLOR="#000000">SECURITY:</FONT></TT>
+
+<P><TT>&nbsp;<A NAME="USERS"></A><FONT COLOR="#000000">&nbsp;&nbsp; USERS:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_rct.sql">usr_rct</A>&nbsp;
+- Create a script to recreate users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="users.sql">users</A>&nbsp;&nbsp;&nbsp;
+- Oracle users report (summary)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="id.sql">id</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Display current username and database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="set_ts.sql">set_ts</A>&nbsp;&nbsp;
+- Set user tablespace defaults (by user name or role)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rm_usr.sql">rm_usr</A>&nbsp;&nbsp;
+- Drop users (by name or role)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="like_usr.sql">like_usr</A>
+- Create an ORACLE user account like another account</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="passwd.sql">passwd</A>&nbsp;&nbsp;
+- Change current user's password</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="set_pwd.sql">set_pwd</A>&nbsp;
+- Set the "standard" user password (by user name or role)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="protect.sql">protect</A>&nbsp;
+- Mass change password for group of users</TT>
+
+<P><TT>&nbsp;<A NAME="PROFILES"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+PROFILES:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="used_sp.sql">used_sp</A>&nbsp;
+- Database used space report (to check quotas)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="quota.sql">quota</A>&nbsp;&nbsp;&nbsp;
+- Report how much space each user has (quota usage)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="profiles.sql">profiles</A>
+- Profiles report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="quotas.sql">quotas</A>&nbsp;&nbsp;
+- Users space quotas by users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_used.sql">usr_used</A>
+- Database usage by user and tablespace (to check quotas)</TT>
+
+<P><TT>&nbsp;<A NAME="ROLES AND PRIVILEGES"></A><FONT COLOR="#000000">&nbsp;&nbsp;
+ROLES AND PRIVILEGES:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="privs.sql">privs</A>&nbsp;&nbsp;&nbsp;
+- Privileges granted to a user or role (all-purpose)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tab_grnt.sql">tab_grnt</A>
+- Create output that can recreate all table(s) grants</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sec_obj.sql">sec_obj</A>&nbsp;
+- Direct object grants to users and roles</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sec_priv.sql">sec_priv</A>
+- Direct system privilege grants to users and roles</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sec_role.sql">sec_role</A>
+- Direct role grants to users and roles</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="monitor.sql">monitor</A>&nbsp;
+- Grants to user who will be monitoring</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="grnt_sys.sql">grnt_sys</A>
+- Grants select on SYS tables to users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rvk_sys.sql">rvk_sys</A>&nbsp;
+- Revokes select on SYS tables from a user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="uprivcrt.sql">uprivcrt</A>
+- The script to create the DBA_USER_PRIVS view</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_priv.sql">usr_priv</A>
+- Which privileges are available to a given user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="crud.sql">crud</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Access privileges to objects in CRUD chart by role</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="grnt_obj.sql">grnt_obj</A>
+- Grant privileges on objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="noaccess.sql">noaccess</A>
+- Objects which have no grants</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="roles.sql">roles</A>&nbsp;&nbsp;&nbsp;
+- List roles</TT>
+
+<P><TT>&nbsp;<A NAME="AUDIT"></A><FONT COLOR="#000000">&nbsp;&nbsp; AUDIT:</FONT></TT>
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P><A NAME="INSTANCE"></A><TT><FONT COLOR="#000000">INSTANCE:</FONT></TT>
+
+<P><TT>&nbsp;<A NAME="SGA"></A><FONT COLOR="#000000">&nbsp;&nbsp; SGA:</FONT></TT>
+
+<P><TT>&nbsp;<A NAME="BUFFER CACHE"></A><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BUFFER CACHE:</FONT></TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="hit_rat1.sql">hit_rat1</A> - Cumulative hit ratio</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="hit_rat2.sql">hit_rat2</A> - Cumulative hit ratio</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="usr_hit1.sql">usr_hit1</A> - Hit ratio by users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="usr_hit2.sql">usr_hit2</A> - Hit ratio by users (Mark Gurry)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="bufcache.sql">bufcache</A> - Buffer cache usage (general and detailed
+reports)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="buf_gets.sql">buf_gets</A> - All statements that are taking longer
+than</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 seconds</TT> <TT>to scan through the buffer cache</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="buf_wait.sql">buf_wait</A> - Number of waits for free buffer</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="buf_free.sql">buf_free</A> - Database buffer cache free and used
+blocks</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="buf_chk.sql">buf_chk</A>&nbsp; - Database block buffer cache summary</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sga_dec.sql">sga_dec</A>&nbsp; - Examine statistics in the X$KCBCBH
+table with</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+intent</TT> <TT>to shrink the SGA</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sga_inc.sql">sga_inc</A>&nbsp; - Examine statistics in the X$KCBRBH
+table with</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+intent</TT> <TT>to expand the SGA</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="lru_stat.sql">lru_stat</A> - Buffer cache statistics in X$KCBRBH
+and X$KCBCBH</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="dirty.sql">dirty</A>&nbsp;&nbsp;&nbsp; - Information about dirty
+buffers in the buffer cache</TT>
+
+<P><TT>&nbsp;<A NAME="SHARED POOL"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SHARED POOL:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sh_pool.sql">sh_pool</A>&nbsp; - Shared pool summary</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="bad_obj.sql">bad_obj</A>&nbsp; - Report on "bad" objects in the
+shared pool</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pinned.sql">pinned</A>&nbsp;&nbsp; - Query the SGA to determine
+pinned PL/SQL objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pin.sql">pin</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Pin packages
+in SGA (an interactive script)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="unpin.sql">unpin</A>&nbsp;&nbsp;&nbsp; - Unpin packages in SGA
+(an interactive script)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pin_sys.sql">pin_sys</A>&nbsp; - Pin some SYS packages in SGA
+(a batch script)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="cursors.sql">cursors</A>&nbsp; - Display open cursors (summary
+by user)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poor_sql.sql">poor_sql</A> - "Poorly performing" SQL statements</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sql_read.sql">sql_read</A> - Statements in shared pool with the
+most disk reads</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="most.sql">most</A>&nbsp;&nbsp;&nbsp;&nbsp; - Most consumed program
+objects in the shared pool</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poolfail.sql">poolfail</A> - Shared pool reserved size recommendation</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poolsize.sql">poolsize</A> - Recommended shared pool size</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pool_adv.sql">pool_adv</A> - Calculates size of shared pool based
+on # of users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="res_pool.sql">res_pool</A> - Reserved pool settings for the shared
+pool area</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="usr_curs.sql">usr_curs</A> - User session cursor usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="free_mem.sql">free_mem</A> - Shared pool free memory</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poolload.sql">poolload</A> - Shared pool load level</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pool_chk.sql">pool_chk</A> - Integrated information about the
+shared pool</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="libcache.sql">libcache</A> - Library cache report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poolstat.sql">poolstat</A> - Shared pool stored object statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="poolutil.sql">poolutil</A> - Estimates shared pool utilization</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sql_mem.sql">sql_mem</A>&nbsp; - SQL area memory usage showing
+SQL text and memory</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+categories</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="last_sql.sql">last_sql</A> - Last executed SQL statement by session
+with stats</TT>
+
+<P><TT>&nbsp;<A NAME="OTHER"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OTHER:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="up_time.sql">up_time</A>&nbsp; - The time when an instance was
+started</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="dirt_que.sql">dirt_que</A> - The average length of the write request
+queue</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sga_stat.sql">sga_stat</A> - Key SGA memory usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="recursiv.sql">recursiv</A> - Number of recursive calls that the
+instance has</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+performed</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="dc.sql">dc</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Dictionary
+cache statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="dc_eff.sql">dc_eff</A>&nbsp;&nbsp; - Dictionary cache effectiveness</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="ctl_file.sql">ctl_file</A> - Document control file location and
+status</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="eventset.sql">eventset</A> - Reports all events set in the current
+session and</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+their level</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="hits.sql">hits</A>&nbsp;&nbsp;&nbsp;&nbsp; - Primary ORACLE internal
+hit ratios and memory</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="sga_hits.sql">sga_hits</A> - SGA cache hit ratios</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pga.sql">pga</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Display user
+PGA memory usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="uga.sql">uga</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Display user
+UGA memory usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pq.sql">pq</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Show Parallel
+Query vital stats</TT>
+
+<P><TT>&nbsp;<A NAME="INITIALIZATION"></A>&nbsp;&nbsp; INITIALIZATION:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="pars.sql">pars</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- INIT.ORA parameters</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="undocini.sql">undocini</A>
+- Undocumented INIT.ORA parameters (7.3)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="init_chk.sql">init_chk</A>
+- INIT.ORA parameters settings adviser</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="init_ora.sql">init_ora</A>
+- Recreate the instance INIT.ORA file</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ver.sql">ver</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Show product version information and installed options</TT>
+
+<P><TT>&nbsp;<A NAME="TRANSACTIONS"></A>&nbsp;&nbsp; TRANSACTIONS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_usr.sql">rbs_usr</A>&nbsp;
+- Rollback segments, active users and SQL statements</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_act.sql">rbs_act</A>&nbsp;
+- Rollback segment usage by active transactions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="transact.sql">transact</A>
+- Active transactions</TT>
+
+<P><TT>&nbsp;<A NAME="SESSIONS AND PROCESSES"></A>&nbsp;&nbsp; SESSIONS
+AND PROCESSES:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_mem.sql">ses_mem</A>&nbsp;
+- Session memory usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="my_sess.sql">my_sess</A>&nbsp;
+- Identification of the current session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="my_waits.sql">my_waits</A>
+- Current session wait events</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="access.sql">access</A>&nbsp;&nbsp;
+- Database objects accessed by users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="waiters1.sql">waiters1</A>
+- Waiting and holding sessions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="waiters2.sql">waiters2</A>
+- Report on sessions waiting for locks</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_cpu.sql">ses_cpu</A>&nbsp;
+- CPU used per session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tot_wait.sql">tot_wait</A>
+- Session waits (total)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_io.sql">ses_io</A>&nbsp;&nbsp;
+- Display IO and hit ratio by session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_ses.sql">usr_ses</A>&nbsp;
+- Show users session information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="usr_curs.sql">usr_curs</A>
+- User session cursor usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_wait.sql">ses_wait</A>
+- Sessions (users) waits</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="lockers.sql">lockers</A>&nbsp;
+- Sessions blocking other sessions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_evnt.sql">ses_evnt</A>
+- Generate a report on session events by user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="login_tm.sql">login_tm</A>
+- User login times</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="os_usr.sql">os_usr</A>&nbsp;&nbsp;
+- Current oracle system users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="process.sql">process</A>&nbsp;
+- Current oracle processes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="jobs.sql">jobs</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Lists all jobs in the database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="idle_ses.sql">idle_ses</A>
+- Finding out the time for which sessions has been idle</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="eventset.sql">eventset</A>
+- Reports all events set in the current session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="bg.sql">bg</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Activated backgroung processes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="app_info.sql">app_info</A>
+- Application information for sessions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="kill.sql">kill</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Kill session(s)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="last_sql.sql">last_sql</A>
+- Last executed SQL statement by session with stats</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="trace.sql">trace</A>&nbsp;&nbsp;&nbsp;
+- Set SQL_TRACE on/off in selected user sessions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="uga.sql">uga</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Display user UGA memory usage</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="userenv.sql">userenv</A>&nbsp;
+- Show values of all USERENV variables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="who.sql">who</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Who are working?</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="what.sql">what</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Current sessions and SQL statements</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tot_mem.sql">tot_mem</A>&nbsp;
+- Total sessions UGA and PGA memory usage</TT>
+<BR><TT>&nbsp;</TT>
+<BR>&nbsp;
+
+<P><A NAME="RECOVERY AND BACKUP"></A><TT>RECOVERY:</TT>
+
+<P><TT>&nbsp;<A NAME="BACKUP"></A>&nbsp;&nbsp; BACKUP:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="panic.sql">panic</A>&nbsp;&nbsp;&nbsp;
+- Emergency script (to rebuild database)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ctl_file.sql">ctl_file</A>
+- Document control file location and status</TT>
+
+<P><TT>&nbsp;<A NAME="RECOVERY"></A>&nbsp;&nbsp; RECOVERY:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="scn.sql">scn</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- All about SCN in a database</TT>
+
+<P><TT>&nbsp;<A NAME="REDO LOGS"></A>&nbsp;&nbsp; REDO LOGS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="loginter.sql">loginter</A>
+- Redo log switch intervals by days</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="logs.sql">logs</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Redo logs information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="log_con.sql">log_con</A>&nbsp;
+- Redo log contention</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="log_file.sql">log_file</A>
+- Redo log physical files</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="log_chk.sql">log_chk</A>&nbsp;
+- Redo log files and buffer tuning information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="log_stat.sql">log_stat</A>
+- Statistics associated with redo logs</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tm2rd.sql">tm2rd</A>&nbsp;&nbsp;&nbsp;
+- Converts a standard date into redo dump time format</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rd2tm.sql">rd2tm</A>&nbsp;&nbsp;&nbsp;
+- Converts time from a redo dump into a readable format</TT>
+<BR>&nbsp;
+
+<P><A NAME="SCHEMA"></A><TT>SCHEMA:</TT>
+
+<P><TT>&nbsp;<A NAME="DATA DICTIONARY"></A>&nbsp;&nbsp; DATA DICTIONARY:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="dict.sql">dict</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Dictionary views and their descriptions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="dict_col.sql">dict_col</A>
+- Dictionary views, their columns and column descriptions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="fix_tab.sql">fix_tab</A>&nbsp;
+- Fixed tables, views and view definitions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="db_rct.sql">db_rct</A>&nbsp;&nbsp;
+- Script for (re)creating DB</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="col_comm.sql">col_comm</A>
+- Comments on the table and its columns</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tab_comm.sql">tab_comm</A>
+- Comments on tables</TT>
+
+<P><TT>&nbsp;<A NAME="OPTIMIZER"></A>&nbsp;&nbsp; OPTIMIZER:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="analyze.sql">analyze</A>&nbsp;
+- Analyze tables and clusters (compute, estimate</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or delete)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="anl_usr.sql">anl_usr</A>&nbsp;
+- Analyze all tables and clusters in specified schemas</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="anl_sch.sql">anl_sch</A>&nbsp;
+- Analyze all objects in schemas using DBMS_UTILITY</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="analyzed.sql">analyzed</A>
+- Tables that are analyzed (summary by owner)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="anl_stat.sql">anl_stat</A>
+- Queries statistics collected by ANALYZE for a user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tab_stat.sql">tab_stat</A>
+- Shows analyzed statistics for all tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="col_stat.sql">col_stat</A>
+- Analyzed statistics for table(s) columns</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="adv_anal.sql">adv_anal</A>
+- Performs advanced ANALYZE operations</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="estimate.sql">estimate</A>
+- Analyzing multiple tables by estimating statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="est_usr.sql">est_usr</A>&nbsp;
+- Estimate objects in a schema by DBMS_UTILITY</TT>
+
+<P><TT>&nbsp;<A NAME="EXPLAIN"></A>&nbsp;&nbsp; EXPLAIN:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="showplan.sql">showplan</A>
+- Tree-structured output from the plan table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="delplan.sql">delplan</A>&nbsp;
+- Delete a plan from the plan table for given statement</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="explain.sql">explain</A>&nbsp;
+- Explain the statement from SQL*Plus buffer</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="plan.sql">plan</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Display execution plan for the statement in</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SQL*Plus buffer</TT>
+
+<P><TT>&nbsp;<A NAME="OBJECTS"></A>&nbsp;&nbsp; OBJECTS:</TT>
+
+<P><TT>&nbsp;<A NAME="GENERAL"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GENERAL:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="objects.sql">objects</A>&nbsp; - Display database objects of some
+type</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="obj_sum.sql">obj_sum</A>&nbsp; - Display summary of database objects
+by type</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="invalid.sql">invalid</A>&nbsp; - Shows all invalid objects in
+database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="comp_sch.sql">comp_sch</A> - Compile invalid objects in a given
+schema</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="compile.sql">compile</A>&nbsp; - Recompile invalid database objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="access.sql">access</A>&nbsp;&nbsp; - Database objects accessed
+by users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="objcount.sql">objcount</A> - Object count by user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="comp_inv.sql">comp_inv</A> - Compile all invalid objects in given
+schemas</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(simple)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="hanging.sql">hanging</A>&nbsp; - Objects that need to be recompiled
+because they may</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+be hanging</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="max_ext.sql">max_ext</A>&nbsp; - Objects with extents allocated
+close to MAX_EXTENTS</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="obj_size.sql">obj_size</A> - Stored object info (names, types
+and sizes)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tot_size.sql">tot_size</A> - Lists the size of stored objects
+(summary by type)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="depend.sql">depend</A>&nbsp;&nbsp; - What objects an objects depends
+on immediately</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="obj_num.sql">obj_num</A>&nbsp; - Object info from an object number</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="drop.sql">drop</A>&nbsp;&nbsp;&nbsp;&nbsp; - Drop database object(s)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="what_is.sql">what_is</A>&nbsp; - Resolve reference to specified
+name from current</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+account</TT>
+
+<P><TT>&nbsp;<A NAME="TABLES AND VIEWS"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TABLES AND VIEWS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="row_size.sql">row_size</A> - Calculates average row size in a
+table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="col_diff.sql">col_diff</A> - Columns with inconsistent data lengths</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="col_comp.sql">col_comp</A> - Compares columns in two tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="col_size.sql">col_size</A> - Calculates average column size in
+a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="cols.sql">cols</A>&nbsp;&nbsp;&nbsp;&nbsp; - Table, cluster and
+view column definitions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="blokrows.sql">blokrows</A> - Number of rows per table block</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="noindex.sql">noindex</A>&nbsp; - All tables that do not have any
+indexes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="chaining.sql">chaining</A> - Report on the number of chained rows
+within</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a named table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_col.sql">tab_col</A>&nbsp; - Table column definitions (long
+format)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_rct.sql">tab_rct</A>&nbsp; - Script for (re)creating tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_stat.sql">tab_stat</A> - Shows analyzed statistics for all
+tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="col_stat.sql">col_stat</A> - Analyzed statistics for table(s)
+columns</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_com1.sql">tab_com1</A> - Comments on the table and its columns</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_com2.sql">tab_com2</A> - Display comments on a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="view_rct.sql">view_rct</A> - Recreate database views by owner</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="seg_cols.sql">seg_cols</A> - Physical order of columns in a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="dup_keys.sql">dup_keys</A> - Finds duplicate keys (column values)
+in a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="view_tab.sql">view_tab</A> - Script to determine the base tables
+used in a view</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_size.sql">tab_size</A> - Calculates size of a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_link.sql">tab_link</A> - Objects affected when making changes
+to a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="del_dupl.sql">del_dupl</A> - Delete duplicating rows in a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="same_col.sql">same_col</A> - Determine use of common column names/types</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+across tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="desc.sql">desc</A>&nbsp;&nbsp;&nbsp;&nbsp; - Enhanced SQL*Plus-like
+describe for tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="null_col.sql">null_col</A> - List columns in tables which are
+all NULL</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="upd_col.sql">upd_col</A>&nbsp; - Display updatable columns in
+views</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="t&i_size.sql">t&amp;i_size</A> - Table and their index segment
+sizes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="filerows.sql">filerows</A> - Table's rows per datafile (striping
+effectiveness)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_all.sql">tab_all</A>&nbsp; - All statistics for a table (including
+indexes)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="selectiv.sql">selectiv</A> - Describes selectivity of given columns
+for a table</TT>
+<BR>&nbsp;
+
+<P><TT>&nbsp;<A NAME="INDEXES"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INDEXES:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_stor.sql">idx_stor</A> - Indexes storage characteristics (may
+be improved)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="tab_idx.sql">tab_idx</A>&nbsp; - Tables and their indexes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="col_idx.sql">col_idx</A>&nbsp; - All indexes on the table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="superind.sql">superind</A> - Indexes which may be superfluous</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="brown.sql">brown</A>&nbsp;&nbsp;&nbsp; - Index statistics report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_bad.sql">idx_bad</A>&nbsp; - Index fragmentation statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_item.sql">idx_item</A> - Compute the space used by an entry
+for an existing</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+index</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_rct.sql">idx_rct</A>&nbsp; - Create a script to build all
+the indexes in a user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+schema</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_stat.sql">idx_stat</A> - Report on user's indexes statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="indexes.sql">indexes</A>&nbsp; - Expanded index report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="rm_idx.sql">rm_idx</A>&nbsp;&nbsp; - Drop indexes on the selected
+tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="low_card.sql">low_card</A> - Indexes on low cardinality columns</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="rebuild.sql">rebuild</A>&nbsp; - Rebuild indexes or move indexes
+to another</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tablespace</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="idx_calc.sql">idx_calc</A> - Estimate the size of an index</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="t&i_size.sql">t&amp;i_size</A> - Table and their index segment
+sizes</TT>
+
+<P><TT>&nbsp;<A NAME="CLUSTERS"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLUSTERS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="clusters.sql">clusters</A> - Information about clusters (physical
+aspects)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="clus_col.sql">clus_col</A> - Report on database clusters showing
+cluster,</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tables, and</TT>&nbsp; <TT>column data</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="clus_siz.sql">clus_siz</A> - Cluster sizing information</TT>
+
+<P><TT>&nbsp;<A NAME="SEQUENCES"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SEQUENCES:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="seqs.sql">seqs</A>&nbsp;&nbsp;&nbsp;&nbsp; - Generate a report
+on sequences for an account</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="seq_rct.sql">seq_rct</A>&nbsp; - Script for (re)creating database
+sequences</TT>
+
+<P><TT>&nbsp;<A NAME="SYNONYMS"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYNONYMS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="synonyms.sql">synonyms</A> - Generate report of users synonyms</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="synm_rct.sql">synm_rct</A> - Script for (re)creating synonyms</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="pub_synm.sql">pub_synm</A> - Resolve public synonyms for objects
+in a schema</TT>
+
+<P><TT>&nbsp;<A NAME="CONSTRAINTS"></A>&nbsp;&nbsp; CONSTRAINTS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="foreign.sql">foreign</A>&nbsp;
+- All foreign keys in a database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="fk_tree.sql">fk_tree</A>&nbsp;
+- Display FK references in tree format</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="noindxfk.sql">noindxfk</A>
+- Foreign keys with indexes missing on child table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="fk_off.sql">fk_off</A>&nbsp;&nbsp;
+- Disable foreing keys referring to PK/UK on a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="fk_on.sql">fk_on</A>&nbsp;&nbsp;&nbsp;
+- Enable foreing keys referring to PK/UK on a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="cons_off.sql">cons_off</A>
+- Disable table integrity constraints</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="cons_on.sql">cons_on</A>&nbsp;
+- Enables table integrity constraints</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="colc_off.sql">colc_off</A>
+- Disable column integrity constraints</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rm_cons.sql">rm_cons</A>&nbsp;
+- Drop integrity constraints</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rm_fk.sql">rm_fk</A>&nbsp;&nbsp;&nbsp;
+- Drop or disable FKs which references specified tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="pk_fk.sql">pk_fk</A>&nbsp;&nbsp;&nbsp;
+- Documenting relationships among tables of a user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="alone.sql">alone</A>&nbsp;&nbsp;&nbsp;
+- Show standalone tables (not involved into PK-FK</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+relationships)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="no_pk.sql">no_pk</A>&nbsp;&nbsp;&nbsp;
+- Show tables with no primary keys</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="null_col.sql">null_col</A>
+- List columns in tables which are all NULL</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="relation.sql">relation</A>
+- Display relationships between tables</TT>
+
+<P><TT>&nbsp;<A NAME="PL/SQL UNITS"></A>&nbsp;&nbsp; PL/SQL UNITS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tobepin.sql">tobepin</A>&nbsp;
+- List the PL/SQL packages that can be pinned</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="invalid.sql">invalid</A>&nbsp;
+- Shows all invalid objects in database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="comp_sch.sql">comp_sch</A>
+- Compile invalid objects in a given schema</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="compile.sql">compile</A>&nbsp;
+- Recompile invalid database objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="pacwobod.sql">pacwobod</A>
+- Packages without body</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="pinned.sql">pinned</A>&nbsp;&nbsp;
+- Query the SGA to determine pinned PL/SQL objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="prog_rct.sql">prog_rct</A>
+- Build a script to re-create a program unit</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="trig_rct.sql">trig_rct</A>
+- Script for re-creating database triggers</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="triggers.sql">triggers</A>
+- Report on all triggers and their status</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="trig_sum.sql">trig_sum</A>
+- Summary of triggers by type and event</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="trig_off.sql">trig_off</A>
+- Disable triggers</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="trig_on.sql">trig_on</A>&nbsp;
+- Enable triggers</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rm_trig.sql">rm_trig</A>&nbsp;
+- Drop triggers on a table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="args.sql">args</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Display package function arguments</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="errors.sql">errors</A>&nbsp;&nbsp;
+- Show errors on stored objects</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="source.sql">source</A>&nbsp;&nbsp;
+- List source code of a program unit</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="search.sql">search</A>&nbsp;&nbsp;
+- Search source code for patterns</TT>
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P><A NAME="SYSTEM"></A><TT>SYSTEM:</TT>
+
+<P><TT>&nbsp;<A NAME="MTS"></A>&nbsp;&nbsp; MTS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mts_avew.sql">mts_avew</A>
+- Multi-Threaded Server average wait details</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mts_mem.sql">mts_mem</A>&nbsp;
+- Session memory is being used by MTS in the shared pool</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mts_resp.sql">mts_resp</A>
+- Multi-Threaded Server response times</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mts_wait.sql">mts_wait</A>
+- Multi-Threaded Server waits</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mts_mon.sql">mts_mon</A>&nbsp;
+- Monitor multi-threaded server activity</TT>
+
+<P><TT>&nbsp;<A NAME="LATCHES"></A>&nbsp;&nbsp; LATCHES:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="latches.sql">latches</A>&nbsp;
+- Informafion about latches</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="latchhld.sql">latchhld</A>
+- Lists who is holding which latches</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="buflatch.sql">buflatch</A>
+- Latch contention on the Oracle Buffer Cache</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="liblatch.sql">liblatch</A>
+- Library latch contention</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="latchcon.sql">latchcon</A>
+- Latch contention report</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sleeps.sql">sleeps</A>&nbsp;&nbsp;
+- Latch sleeps report</TT>
+
+<P><TT>&nbsp;<A NAME="LOCKS"></A>&nbsp;&nbsp; LOCKS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="waiters.sql">waiters</A>&nbsp;
+- Report on sessions waiting for locks</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="blockers.sql">blockers</A>
+- Users blocking and waiting for other users</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="lock_sql.sql">lock_sql</A>
+- SQL that people who are currently being locked</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+are trying to run</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="lockers.sql">lockers</A>&nbsp;
+- Sessions blocking other sessions</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="int_lock.sql">int_lock</A>
+- Current internal locks</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="db_locks.sql">db_locks</A>
+- Report on all DB locks</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="all_lock.sql">all_lock</A>
+- All locks held in the database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="lock_def.sql">lock_def</A>
+- Displays lock compatibility table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="locks.sql">locks</A>&nbsp;&nbsp;&nbsp;
+- Displays active locks with detailed lock description</TT>
+
+<P><TT>&nbsp;<A NAME="STATISTICS"></A>&nbsp;&nbsp; STATISTICS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="stats.sql">stats</A>&nbsp;&nbsp;&nbsp;
+- Session/system statistics (an all-purpose script)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sys_stat.sql">sys_stat</A>
+- System statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="waits.sql">waits</A>&nbsp;&nbsp;&nbsp;
+- A snapshot of all the wait events in the database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="waitstat.sql">waitstat</A>
+- Waits statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="my_waits.sql">my_waits</A>
+- Current session wait events</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_cpu.sql">ses_cpu</A>&nbsp;
+- CPU used per session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_io.sql">ses_io</A>&nbsp;&nbsp;
+- Display IO and hit ratio by session</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="sort_chk.sql">sort_chk</A>
+- Statistics and recommendations about sorts</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tab_accs.sql">tab_accs</A>
+- Table access methods statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="obj_wait.sql">obj_wait</A>
+- All objects that the waits are currently</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+occurring on</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_wait.sql">ses_wait</A>
+- Sessions (users) waits</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="ses_evnt.sql">ses_evnt</A>
+- Generate a report on session events by user</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="events.sql">events</A>&nbsp;&nbsp;
+- Display session and system events</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="io.sql">io</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- I/O distribution by file, tablespace, or device</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="last_sql.sql">last_sql</A>
+- Last executed SQL statement by session with stats</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="log_stat.sql">log_stat</A>
+- Statistics associated with redo logs</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="rbs_stat.sql">rbs_stat</A>
+- Rollback segments statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="my_stat.sql">my_stat</A>&nbsp;
+- Current session statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="tun_stat.sql">tun_stat</A>
+- Oracle tuning statistics</TT>
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P><A NAME="INTEGRATED SCRIPTS"></A><TT>INTEGRATED SCRIPTS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="ben_mark.sql">ben_mark</A> - Benchmark
+performance statistics (by Mark Gurry)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="trouble.sql">trouble</A>&nbsp; - A
+fast overview of the state of a troubled system</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="prep_db.sql">prep_db</A>&nbsp; - Script
+to run some RDBMS scripts against a new database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="db_chk.sql">db_chk</A>&nbsp;&nbsp;
+- Oracle performance overview</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="db_info.sql">db_info</A>&nbsp; - Oracle
+database general information</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="tun_stat.sql">tun_stat</A> - Oracle
+tuning statistics</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="prober.sql">prober</A>&nbsp;&nbsp;
+- Quick tuning prober</TT>
+<BR>&nbsp;
+
+<P><A NAME="MISCELLANEOUS"></A><TT>MISCELLANEOUS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="ascii.sql">ascii</A>&nbsp;&nbsp;&nbsp;
+- Print ASCII table</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="compat.sql">compat</A>&nbsp;&nbsp;
+- Display backward-compatibility specific features</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="db_size.sql">db_size</A>&nbsp; - Display
+database size indicators</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="for_obj.sql">for_obj</A>&nbsp; - Performs
+"command" on each object</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="for_col.sql">for_col</A>&nbsp; - Performs
+"command" on each table column</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="nls.sql">nls</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Display NLS parameters</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="ping.sql">ping</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Ping a database</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="set_pq.sql">set_pq</A>&nbsp;&nbsp;
+- Set PARALLEL characteristics of tables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="char_set.sql">char_set</A> - Change
+database character set (DANGEROUS!)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="jobs.sql">jobs</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Running jobs</TT>
+<BR><TT>&nbsp;</TT>
+
+<P><A NAME="SERVICE SCRIPTS"></A><TT>SERVICE SCRIPTS:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_BEGIN.sql">_begin</A>&nbsp;&nbsp;
+- Startup script</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_END.sql">_end</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Ending script</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_SET.sql">_set</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- SQL*Plus scripts settings</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_DEFAULT.sql">_default</A> - Restore
+default SQL*Plus settings</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_DEFINE.sql">_define</A>&nbsp; - Define
+scripts SQL*Plus variables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_UNDEF.sql">_undef</A>&nbsp;&nbsp;
+- Undefine scripts SQL*Plus variables</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_CLEAR.sql">_clear</A>&nbsp;&nbsp;
+- Clear columns, breaks and computes</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_HIDE.sql">_hide</A>&nbsp;&nbsp;&nbsp;
+- Settings for "silent" execution</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_TITLE.sql">_title</A>&nbsp;&nbsp;
+- Standard report heading (80 columns)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_WTITLE.sql">_wtitle</A>&nbsp; - "Wide"
+report heading (132 columns)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="_CONFIRM.sql">_confirm</A> - Embedded
+script to prompt user before an action</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="out.sql">out</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- Show script's spooled output</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; <A HREF="help.sql">help</A>&nbsp;&nbsp;&nbsp;&nbsp;
+- Show THIS readme file</TT>
+<BR>&nbsp;
+
+<P><A NAME="NOTES"></A><TT><FONT COLOR="#009900">NOTES</FONT></TT>
+
+<P><TT>&nbsp;&nbsp;&nbsp; 1. If you use UNIX to run this scripts, you must
+rename service</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; scripts, beginning with underscore "_", to upper
+case (for example,</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; _begin.sql to _BEGIN.sql). File name extention
+(.sql) must be in lower</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; case.</TT>
+</BODY>
+</HTML>
